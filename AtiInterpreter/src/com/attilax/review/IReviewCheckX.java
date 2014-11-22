@@ -1,4 +1,4 @@
-package com.attilax.designpatter.parterr;
+package com.attilax.review;
 
 public interface IReviewCheckX {
 
