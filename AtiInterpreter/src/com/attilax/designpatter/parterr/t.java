@@ -79,7 +79,7 @@ public class t implements IReview {
 	IFrontCheck frtchk;
 
 	private void del(int i) throws HasReltDataEx, AlreadyReviewPassedEx,Exception {
-		if (frtchk != null) //default can b use front chkx...only exist chkor ,then use chkor.. todox ob7
+		if (frtchk != null) //  default can b use front chkx...only exist chkor ,then use chkor.. todox ob7
 			frtchk.execute(i);
 		ReviewX.reviewPassedCheck_shouldBeYetNoReviewOrBack(i);
 		if (ReltDataCheckX1 != null)
