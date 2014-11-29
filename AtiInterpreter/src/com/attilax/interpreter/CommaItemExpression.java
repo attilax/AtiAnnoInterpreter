@@ -11,7 +11,36 @@ public class CommaItemExpression  extends  AbstractExpression {
 
 	 
 
-      public AttrNameExpression  attNameExp;
+      public AttrNameExpression getAttNameExp() {
+		return attNameExp;
+	}
+
+
+	public void setAttNameExp(AttrNameExpression attNameExp) {
+		this.attNameExp = attNameExp;
+	}
+
+
+	public EqxlExpression getEqExp() {
+		return eqExp;
+	}
+
+
+	public void setEqExp(EqxlExpression eqExp) {
+		this.eqExp = eqExp;
+	}
+
+
+	public AttValExpression getAttValExp() {
+		return attValExp;
+	}
+
+
+	public void setAttValExp(AttValExpression attValExp) {
+		this.attValExp = attValExp;
+	}
+
+	public AttrNameExpression  attNameExp;
   	public EqxlExpression  eqExp;
   	public AttValExpression  attValExp;
 
@@ -29,9 +58,16 @@ public class CommaItemExpression  extends  AbstractExpression {
 			Attr a=new Attr();
 			a.key=(String) attNameExp.interpret(ctx);
 			a.val=(String) attValExp.interpret(ctx);
-	 	  ctx.curAnno_AttrList.add(a);
+	 	//  ctx.curAnno_AttrList.add(a);
 	 	 return a;
 		
 	}
+	
+	public String toString()
+	{
+		return attNameExp.toString()+eqExp.toString()+attValExp.toString();
+		
+	}
+
 
 }

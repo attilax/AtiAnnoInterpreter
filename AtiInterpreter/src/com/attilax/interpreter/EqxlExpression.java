@@ -1,5 +1,7 @@
 package com.attilax.interpreter;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+
 import com.attilax.interpreter.exam.AbstractExpression;
 
 /**
@@ -7,6 +9,7 @@ import com.attilax.interpreter.exam.AbstractExpression;
  * @author Administrator
  *
  */
+@JsonAutoDetect(fieldVisibility=JsonAutoDetect.Visibility.ANY)
 public class EqxlExpression  extends  AbstractExpression {
 
  
@@ -23,5 +26,9 @@ public EqxlExpression(String value) {
 	
 		
 	}
-
+	public String toString()
+	{
+		return "=";
+		
+	}
 }

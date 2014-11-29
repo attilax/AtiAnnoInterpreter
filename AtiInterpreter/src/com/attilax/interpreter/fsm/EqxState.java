@@ -9,7 +9,7 @@ public class EqxState implements State {
 
 		if (ctt.lastKeystate instanceof LeftBrackt || ctt.lastKeystate instanceof commaState || ctt.lastKeystate instanceof iniState) {
 			Token tk = new Token();
-			tk.value = ctt.curToken.value;
+			tk.value = ctt.curToken.value.trim();
 			ctt.tokenList.add(tk);
 			ctt.tokenList.add(new Token() {
 				{

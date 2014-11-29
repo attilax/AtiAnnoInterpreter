@@ -3,8 +3,13 @@ package com.attilax.interpreter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
+
+import com.attilax.interpreter.exam.AbstractExpression;
 
 public class Context {
+	
+	Stack<AbstractExpression> stack = new Stack<AbstractExpression>();
 	public List<Anno> annoList=new ArrayList<Anno>();
 	public Anno  curAnno=new Anno();
 	// private HashMap map = new HashMap();

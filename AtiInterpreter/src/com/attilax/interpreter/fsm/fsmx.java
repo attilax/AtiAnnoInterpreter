@@ -18,7 +18,7 @@ public class fsmx {
 
 	public static List getTokenList() {
 		String s = "@QueryAdptr(sqlwhere=\" clo1='@p' \",prop2=\"v2\") @Nofilt";
-		s="at1=\"v1\",at2=\"v2\",at3=\"v3\" ";
+		s="@qu(at1=\"v1\" , at2 = \" v2 abc \",at3=\"v3\" ) ";
 		// 创建环境
 		AnnoPaserContext context = new AnnoPaserContext();
 		// 将状态设置到环境中
@@ -39,7 +39,7 @@ public class fsmx {
 		}
 		
 		for (Token tk : context.tokenList) {
-			if(tk.value.trim().length()>0)
+		//	if(tk.value.trim().length()>0)
 			System.out.println(tk.value+"");
 		}
 		return (List) context.tokenList;

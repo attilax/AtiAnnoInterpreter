@@ -6,11 +6,15 @@ public class commaState implements State {
 	public void handle(String sampleParameter, Context context) {
 		AnnoPaserContext ctt=(AnnoPaserContext) context;
 	    char curchar=ctt.curchar;
-	    Token tk=new Token();
-	    tk.value=ctt.curToken.value;
-	    ctt.tokenList.add(tk);
+	    
+	   // if(ctt.lastKeystate instanceof DoubleQuoetStartState)
+	    {
+//	    Token tk=new Token();
+//	    tk.value=ctt.curToken.value;
+//	    ctt.tokenList.add(tk);
 	    ctt.tokenList.add(new Token(){{ this.value="," ; }});
 	    ctt.curToken=new Token();
+	    }
 	    
 	 //   ctt.curToken.value+=curchar;
 	    ctt.curcharIndex++;

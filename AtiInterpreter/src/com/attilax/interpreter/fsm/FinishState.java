@@ -7,7 +7,8 @@ public class FinishState  implements State {
 	@Override
 	public void handle(String sampleParameter, Context context) {
 		AnnoPaserContext ctt=(AnnoPaserContext) context;
-		ctt.tokenList.add(ctt.curToken);
+		if(ctt.curToken.value.trim().length()>0)
+			ctt.tokenList.add(ctt.curToken);
 	}
 
 }

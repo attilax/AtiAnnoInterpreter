@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
     public class JsonUtil4jackjson {  
@@ -81,7 +82,9 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
         public String toJson(Object object) {  
       
             try {  
-            //	mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, Boolean.TRUE);
+            //	SerializationConfig.Feature.FAIL_ON_EMPTY_BEANS
+            //	SerializationConfig.Feature.
+             	mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, Boolean.TRUE);
             	//这是辅助设置，控制格式化输出。
             //	mapper.writeValueAsString(value)
             	//format output
@@ -89,6 +92,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
              //   return mapper.writeValueAsString(object);  
             } catch (IOException e) {  
              //   logger.warn("write to json string error:" + object, e);  
+            	e.printStackTrace();
                 return "";  
             }  
         }  
