@@ -14,7 +14,7 @@ public class commaState implements State {
 	    
 	 //   ctt.curToken.value+=curchar;
 	    ctt.curcharIndex++;
-
+ctt.lastKeystate=new commaState();
 	}
 
 }

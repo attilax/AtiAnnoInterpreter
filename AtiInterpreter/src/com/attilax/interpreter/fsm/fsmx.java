@@ -7,7 +7,7 @@ import com.attilax.designpatter.statepatter.State;
 public class fsmx {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		 
 		String s = "@QueryAdptr(sqlwhere=\" clo1='@p' \",prop2=\"v2\") @Nofilt";
 		// 创建环境
 		AnnoPaserContext context = new AnnoPaserContext();
@@ -32,7 +32,7 @@ public class fsmx {
 		
 		for (Token tk : context.tokenList) {
 			if(tk.value.trim().length()>0)
-			System.out.println(tk.value+"   || ");
+			System.out.println(tk.value+"");
 		}
 	//	System.out.println(context.rzt );
 	}
