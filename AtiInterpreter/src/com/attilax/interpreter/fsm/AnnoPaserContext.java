@@ -44,8 +44,8 @@ public class AnnoPaserContext  extends Context {
     	curchar=charArr[curcharIndex];
     	//def todox if to swithc oao
     	
-    	if(curchar=='@')   //keyword
-    		state=new AtState();
+    	//if(curchar=='@')   //keyword
+    	//	state=new AtState();
     	if(curchar=='"')   //splittor word
     		state=new DoubleQuoeState();
     	if(curchar=='(')  //op word

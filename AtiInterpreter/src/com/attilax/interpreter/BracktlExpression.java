@@ -1,6 +1,8 @@
 package com.attilax.interpreter;
 
-public class NonterminalExpression  extends  AbstractExpression {
+import com.attilax.interpreter.exam.AbstractExpression;
+
+public class BracktlExpression  extends  AbstractExpression {
 
 	  private  AbstractExpression left;
 
@@ -8,7 +10,7 @@ public class NonterminalExpression  extends  AbstractExpression {
 
      
 
-      public  NonterminalExpression(AbstractExpression left,AbstractExpression right) {
+      public  BracktlExpression(AbstractExpression left,AbstractExpression right) {
 
              this.left=left;
 
@@ -16,7 +18,8 @@ public class NonterminalExpression  extends  AbstractExpression {
 
       }
 	@Override
-	public void interpret(Context ctx) {
+	public Object interpret(Context ctx) {
+		return ctx;
 		// TODO Auto-generated method stub
 		
 	}

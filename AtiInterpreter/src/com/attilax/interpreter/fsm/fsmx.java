@@ -1,28 +1,36 @@
 package com.attilax.interpreter.fsm;
 
+ 
+
+import java.util.List;
+
 import com.attilax.designpatter.statepatter.ConcreteStateB;
 import com.attilax.designpatter.statepatter.Context;
-import com.attilax.designpatter.statepatter.State;
+ 
 
 public class fsmx {
 
 	public static void main(String[] args) {
 		 
+		getTokenList();
+	//	System.out.println(context.rzt );
+	}
+
+	public static List getTokenList() {
 		String s = "@QueryAdptr(sqlwhere=\" clo1='@p' \",prop2=\"v2\") @Nofilt";
+		s="at1=\"v1\",at2=\"v2\",at3=\"v3\" ";
 		// 创建环境
 		AnnoPaserContext context = new AnnoPaserContext();
 		// 将状态设置到环境中
 		// 创建状态
-	 com.attilax.interpreter.fsm.State state = new iniState();
-	 	context.setState(state);
-	//	context.lastKeystate=new iniState();
-		
-		
+	 
+	 	context.setState(new iniState());
+ 	
 		 
 		int n=0;
 		while(!( context.state instanceof FinishState))
 		{
-		 	System.out.println(n);
+		// 	System.out.println(n);
 		// 请求
 		context.request(s);
 		n++;
@@ -34,7 +42,7 @@ public class fsmx {
 			if(tk.value.trim().length()>0)
 			System.out.println(tk.value+"");
 		}
-	//	System.out.println(context.rzt );
+		return (List) context.tokenList;
 	}
 
 }

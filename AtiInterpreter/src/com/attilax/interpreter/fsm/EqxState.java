@@ -7,7 +7,7 @@ public class EqxState implements State {
 		AnnoPaserContext ctt = (AnnoPaserContext) context;
 		char curchar = ctt.curchar;
 
-		if (ctt.lastKeystate instanceof LeftBrackt || ctt.lastKeystate instanceof commaState) {
+		if (ctt.lastKeystate instanceof LeftBrackt || ctt.lastKeystate instanceof commaState || ctt.lastKeystate instanceof iniState) {
 			Token tk = new Token();
 			tk.value = ctt.curToken.value;
 			ctt.tokenList.add(tk);
