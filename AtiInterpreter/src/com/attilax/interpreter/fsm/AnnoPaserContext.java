@@ -18,17 +18,27 @@ public class AnnoPaserContext  extends Context {
     public void setState(State state) {
         this.state = state;
     }
+    
+    public AnnoPaserContext() {
+    	// state = new iniState();
+    	// state.handle(sampleParameter, context);
+	}
     /**
      * 用户感兴趣的接口方法
      */
     public void request(String sampleParameter) {
+    	if( state instanceof iniState )
+    	{
+    		 state.handle(sampleParameter, this);
+    		 return;
+    	}
     	state=new NormalState();
     	if(curcharIndex>=sampleParameter.length())
     	{
     		state=new FinishState();
     	 	 state.handle(sampleParameter, this);
     		 return;
-    		
+    		 
     	}
     	 
     	curchar=charArr[curcharIndex];
@@ -36,14 +46,15 @@ public class AnnoPaserContext  extends Context {
     	
     	if(curchar=='@')   //keyword
     		state=new AtState();
-    	if(curchar=='(')
+    	if(curchar=='"')   //splittor word
+    		state=new DoubleQuoeState();
+    	if(curchar=='(')  //op word
     		state=new LeftBrackt();
     	if(curchar==')')
     		state=new RightBrackt();
     	if(curchar=='=')
     		state=new EqxState();
-    	if(curchar=='"')
-    		state=new DoubleQuoeState();
+    
      	if(curchar==',')
     	 	state=new commaState();
      

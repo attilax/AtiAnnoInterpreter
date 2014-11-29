@@ -13,16 +13,16 @@ public class fsmx {
 		AnnoPaserContext context = new AnnoPaserContext();
 		// 将状态设置到环境中
 		// 创建状态
-		com.attilax.interpreter.fsm.State state = new iniState();
-		context.setState(state);
-		context.lastKeystate=new iniState();
-		context.charArr=s.toCharArray();
-		context.curcharIndex=0;
+	 com.attilax.interpreter.fsm.State state = new iniState();
+	 	context.setState(state);
+	//	context.lastKeystate=new iniState();
+		
+		
 		 
 		int n=0;
 		while(!( context.state instanceof FinishState))
 		{
-		//	System.out.println(n);
+		 	System.out.println(n);
 		// 请求
 		context.request(s);
 		n++;
