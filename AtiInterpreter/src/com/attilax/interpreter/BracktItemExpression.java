@@ -16,17 +16,7 @@ public class BracktItemExpression extends AbstractExpression {
 			Token tk = tokenList.get(i);
 			switch (tk.value) {
 
-			// case "=": // eq
-			//
-			// // 加法结果放到堆栈中
-			//
-			// left = stack.pop();
-			//
-			// right = new VarExpression(String.valueOf(tk.value));
-			//
-			// stack.push(new EqxlExpression(left, right));
-			//
-			// break;
+ 
 			case ",": // comma exp
 
 				AbstractExpression left = stack.pop();
@@ -39,28 +29,7 @@ public class BracktItemExpression extends AbstractExpression {
 				stack.push(new CommaExpression(left, right));
 
 				break;
-
-			case "(": // comma exp
-
-				// AbstractExpression left = stack.pop();
-//				int nextRitBrackIdx = getnextRitBrackIdx(i, tokenList);
-//				List sub = tokenList.subList(i, nextRitBrackIdx);
-//				AbstractExpression	center = new BracktItemExpression(sub,ctx);
-//
-//				stack.push(new BracktExpression(tokenList.get(i - 1).value,
-//						center));
-
-				break;
-
-			// case '-':
-			//
-			// left = stack.pop();
-			//
-			// right = new VarExpression(String.valueOf(tokenList[++i]));
-			//
-			// stack.push(new SubExpression(left, right));
-			//
-			// break;
+ 
 
 			default: // var in gonsi 公式中的变量
 				AbstractExpression left2 = new CommaItemExpression(

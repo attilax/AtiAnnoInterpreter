@@ -12,7 +12,7 @@ import com.attilax.interpreter.fsm.Token;
 import com.attilax.interpreter.fsm.fsmx;
 import com.attilax.json.JsonUtil4jackjson;
 
-public class Client {
+public class CopyOfClient {
 
 	public Context ctx=new Context();
 
@@ -21,7 +21,7 @@ public class Client {
 	private AbstractExpression expression;
 
 	public static void main(String[] args) throws CantFindRitBrack {
-		Client clt = new Client("");
+		CopyOfClient clt = new CopyOfClient("");
 		@SuppressWarnings("unused")
 		Object rzt = clt.run();
  System.out.println(JsonUtil4jackjson.buildNormalBinder().toJson(				rzt));
@@ -30,7 +30,7 @@ public class Client {
 
 	// 构造函数传参,并解析
 
-	public Client(String expStr) throws CantFindRitBrack {
+	public CopyOfClient(String expStr) throws CantFindRitBrack {
 
 		// 定义一个堆栈，安排运算的先后顺序
 
@@ -50,16 +50,17 @@ public class Client {
 			Token tk = tokenList.get(i);
 			switch (tk.value) {
 
-			case "(": // comma exp
-
-		    	AbstractExpression	left3 = stack.pop();
-				int nextRitBrackIdx=getnextRitBrackIdx(i,tokenList);
-				List sub=tokenList.subList(i+1, nextRitBrackIdx);
-				AbstractExpression	center = new BracktItemExpression(sub,ctx);
-				center=stack.pop();
-				stack.push(new BracktExpression(left3, center));
-				i=nextRitBrackIdx;
-				break;
+			// case "=": // eq
+			//
+			// // 加法结果放到堆栈中
+			//
+			// left = stack.pop();
+			//
+			// right = new VarExpression(String.valueOf(tk.value));
+			//
+			// stack.push(new EqxlExpression(left, right));
+			//
+			// break;
 			case ",": // comma exp
 
 				AbstractExpression	left = stack.pop();
@@ -72,10 +73,36 @@ public class Client {
 				stack.push(new CommaExpression(left, right));
 
 				break;
+				
+			case "(": // comma exp
+
+		    	AbstractExpression	left3 = stack.pop();
+				int nextRitBrackIdx=getnextRitBrackIdx(i,tokenList);
+				List sub=tokenList.subList(i+1, nextRitBrackIdx);
+				AbstractExpression	center = new BracktItemExpression(sub,ctx);
+				center=stack.pop();
+				stack.push(new BracktExpression(left3, center));
+				i=nextRitBrackIdx;
+				break;
+
+			// case '-':
+			//
+			// left = stack.pop();
+			//
+			// right = new VarExpression(String.valueOf(tokenList[++i]));
+			//
+			// stack.push(new SubExpression(left, right));
+			//
+			// break;
 
 			default: // var in gonsi 公式中的变量
 				AbstractExpression left2 =new AnnoExpression(tokenList.get(i).value);
-		 
+				//i++;
+//				new CommaItemExpression(
+//						new AttrNameExpression(tokenList.get(i).value),
+//						new EqxlExpression(tokenList.get(++i).value),
+//						new AttValExpression(tokenList.get(++i).value));
+
 				stack.push(left2);
 
 			}
