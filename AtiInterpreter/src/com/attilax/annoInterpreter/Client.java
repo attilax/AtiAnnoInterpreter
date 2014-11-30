@@ -32,11 +32,13 @@ public class Client {
 	public AbstractExpression expression;
 	
 	public AbstractExpression astRoot;
-
+	@SuppressWarnings("all")
 	public static void main(String[] args) throws CantFindRitBrack {
-		Client clt = new Client("");
-		@SuppressWarnings("unused")
+		Client clt = new Client("");		
 		Object rzt = clt.run();
+		System.out.println(JSONObject.fromObject(clt.astRoot).toString(10));
+		
+		
 		System.out.println(JsonUtil4jackjson.buildNormalBinder().toJson(rzt));
 
 	}
@@ -104,9 +106,11 @@ public class Client {
 	public Object run() {
 		System.out.println("--");
 		// CommaExpression ce=(CommaExpression) expression;
+		
 		AbstractExpression AST = new ASTrootExpress(expression,
 				new AnnoExpression("tt"));
-		System.out.println(JSONObject.fromObject(AST).toString(15));
+		this.astRoot=AST;
+		
 		// json
 		// System.out.println(JsonUtil4jackjson.buildNormalBinder().toJson(
 		// ce));

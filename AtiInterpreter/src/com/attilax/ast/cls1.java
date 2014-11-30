@@ -10,6 +10,7 @@ public class cls1 {
 			mtth3();
 			
 	}
+	@anno1(key1="v1")
 	private static void meth2(int k) {
 		// TODO Auto-generated method stub
 		
