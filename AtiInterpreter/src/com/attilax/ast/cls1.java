@@ -4,6 +4,10 @@ public class cls1 {
 	int i=5,j=6;
 	public static void main(String[] args) {
 		 
+		for(int i=0;i<10;i++)
+		{
+			System.out.println("aa");
+		}
 			int a=5;int b,c;
 			meth1(a=1,b=2,c=3);
 			meth2(a=3);
