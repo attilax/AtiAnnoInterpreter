@@ -9,4 +9,9 @@ Testing (6)Apply Testing filter
  
 Reporting (3)Apply Reporting filter 
 Search (3)Apply Search filter 
+
+
+tar -czf  /home_src/watchesnada0/public_html/replica-watches.tar.gz  /home_src/watchesnada0/public_html/replica-watches
+tar -czf  /home_src/watchesnada0/public_html/where-to-buy.tar.gz  /home_src/watchesnada0/public_html/where-to-buy
+
  
